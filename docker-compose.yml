@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  node:
+    image: node
+    container_name: node-container
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    command: npm start
+
+  mysql:
+    image: mysql
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: example
+      MYSQL_USER: example
+      MYSQL_PASSWORD: example
+    ports:
+      - "3306:3306"
